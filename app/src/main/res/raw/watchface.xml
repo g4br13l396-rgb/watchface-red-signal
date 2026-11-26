@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Red Signal - Watch Face Format v2 (Wear OS 5), 450x450 -->
+<WatchFace width="450" height="450">
+  <Metadata key="CLOCK_TYPE" value="DIGITAL"/>
+  <Scene backgroundColor="#FF000000">
+
+    <!-- ============================== MODALITA' ATTIVA ============================== -->
+    <Group name="interactive" x="0" y="0" width="450" height="450">
+      <Variant mode="AMBIENT" target="alpha" value="0"/>
+      <PartImage x="0" y="0" width="450" height="450"><Image resource="background"/></PartImage>
+
+      <!-- Onde animate dietro i passi: due strati che scorrono in versi opposti.
+           Ogni striscia è larga 450 px + un periodo; spostandola di un periodo torna identica (ciclo continuo). -->
+      <!-- strato tenue: verso destra, periodo 300 px ogni 10 s -->
+      <PartImage x="-300" y="292" width="750" height="158">
+        <Transform target="x" value="-300 + ([SECOND_MILLISECOND] % 10) * 30"/>
+        <Image resource="wave_b"/>
+      </PartImage>
+      <!-- strato principale: verso sinistra, periodo 180 px ogni 6 s -->
+      <PartImage x="0" y="292" width="630" height="158">
+        <Transform target="x" value="0 - ([SECOND_MILLISECOND] % 6) * 30"/>
+        <Image resource="wave_a"/>
+      </PartImage>
+      <!-- mirini, scanner, etichetta e binario dei passi, tacche: sopra le onde -->
+      <PartImage x="0" y="0" width="450" height="450"><Image resource="foreground"/></PartImage>
+
+      <!-- Ora HH:MM: una immagine per cifra, visibile solo quella giusta -->
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 0 ? 255 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 1 ? 255 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 2 ? 255 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 3 ? 255 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 4 ? 255 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 5 ? 255 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 6 ? 255 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 7 ? 255 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 8 ? 255 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 9 ? 255 : 0"/><Image resource="d9"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 0 ? 255 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 1 ? 255 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 2 ? 255 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 3 ? 255 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 4 ? 255 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 5 ? 255 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 6 ? 255 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 7 ? 255 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 8 ? 255 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104"><Transform target="alpha" value="[HOUR_0_23] % 10 == 9 ? 255 : 0"/><Image resource="d9"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 0 ? 255 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 1 ? 255 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 2 ? 255 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 3 ? 255 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 4 ? 255 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 5 ? 255 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 6 ? 255 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 7 ? 255 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 8 ? 255 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104"><Transform target="alpha" value="floor([MINUTE] / 10) == 9 ? 255 : 0"/><Image resource="d9"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 0 ? 255 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 1 ? 255 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 2 ? 255 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 3 ? 255 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 4 ? 255 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 5 ? 255 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 6 ? 255 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 7 ? 255 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 8 ? 255 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104"><Transform target="alpha" value="[MINUTE] % 10 == 9 ? 255 : 0"/><Image resource="d9"/></PartImage>
+
+      <!-- Data: giorno della settimana, giorno, mese -->
+      <PartText x="160" y="90" width="190" height="30">
+        <Text align="START"><Font family="roboto_cond_semibold" size="22" color="#FF28D728"><Upper><Template>%s %d %s<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[DAY]"/><Parameter expression="[MONTH_S]"/></Template></Upper></Font></Text>
+      </PartText>
+      <!-- Secondi -->
+      <PartText x="340" y="90" width="38" height="30">
+        <Text align="END"><Font family="roboto_cond_semibold" size="13" color="#FFF02818"><Template>SEC</Template></Font></Text>
+      </PartText>
+      <PartText x="372" y="90" width="32" height="30">
+        <Text align="END"><Font family="roboto_cond_semibold" size="22" color="#FF28D728"><Template>%02d<Parameter expression="[SECOND]"/></Template></Font></Text>
+      </PartText>
+
+      <!-- Batteria: barra piena rossa + maschera a strisce sopra -->
+      <PartDraw x="0" y="0" width="450" height="450">
+        <Rectangle x="112" y="262" width="200" height="14">
+          <Transform target="width" value="200 * clamp([BATTERY_PERCENT], 0, 100) / 100.0"/>
+          <Fill color="#FFF02818"/>
+        </Rectangle>
+        <!-- barra passi (piena a 10.000) -->
+        <Rectangle x="140" y="382" width="170" height="5">
+          <Transform target="width" value="170 * clamp([STEP_COUNT] / 10000.0, 0, 1)"/>
+          <Fill color="#FF28D728"/>
+        </Rectangle>
+      </PartDraw>
+      <PartImage x="112" y="262" width="200" height="14"><Image resource="stripe_mask"/></PartImage>
+      <PartText x="326" y="253" width="80" height="32">
+        <Text align="CENTER"><Font family="roboto_cond_semibold" size="22" color="#FFF02818"><Template>%d%%<Parameter expression="[BATTERY_PERCENT]"/></Template></Font></Text>
+      </PartText>
+
+      <!-- Passi -->
+      <PartText x="125" y="324" width="200" height="54">
+        <Text align="CENTER"><Font family="roboto_cond_semibold" size="40" color="#FF28D728"><Template>%d<Parameter expression="[STEP_COUNT]"/></Template></Font></Text>
+      </PartText>
+    </Group>
+
+    <!-- ============================== ALWAYS-ON (AMBIENT) ============================== -->
+    <Group name="ambient" x="0" y="0" width="450" height="450" alpha="0">
+      <Variant mode="AMBIENT" target="alpha" value="255"/>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 0 ? 140 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 1 ? 140 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 2 ? 140 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 3 ? 140 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 4 ? 140 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 5 ? 140 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 6 ? 140 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 7 ? 140 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 8 ? 140 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="52" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([HOUR_0_23] / 10) == 9 ? 140 : 0"/><Image resource="d9"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 0 ? 140 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 1 ? 140 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 2 ? 140 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 3 ? 140 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 4 ? 140 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 5 ? 140 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 6 ? 140 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 7 ? 140 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 8 ? 140 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="132" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[HOUR_0_23] % 10 == 9 ? 140 : 0"/><Image resource="d9"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 0 ? 140 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 1 ? 140 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 2 ? 140 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 3 ? 140 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 4 ? 140 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 5 ? 140 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 6 ? 140 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 7 ? 140 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 8 ? 140 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="246" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="floor([MINUTE] / 10) == 9 ? 140 : 0"/><Image resource="d9"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 0 ? 140 : 0"/><Image resource="d0"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 1 ? 140 : 0"/><Image resource="d1"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 2 ? 140 : 0"/><Image resource="d2"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 3 ? 140 : 0"/><Image resource="d3"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 4 ? 140 : 0"/><Image resource="d4"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 5 ? 140 : 0"/><Image resource="d5"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 6 ? 140 : 0"/><Image resource="d6"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 7 ? 140 : 0"/><Image resource="d7"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 8 ? 140 : 0"/><Image resource="d8"/></PartImage>
+      <PartImage x="326" y="132" width="72" height="104" alpha="140"><Transform target="alpha" value="[MINUTE] % 10 == 9 ? 140 : 0"/><Image resource="d9"/></PartImage>
+      <PartDraw x="0" y="0" width="450" height="450">
+        <Rectangle x="208" y="158" width="12" height="12"><Fill color="#FF8C1A10"/></Rectangle>
+        <Rectangle x="208" y="196" width="12" height="12"><Fill color="#FF8C1A10"/></Rectangle>
+      </PartDraw>
+      <PartText x="75" y="250" width="300" height="40">
+        <Text align="CENTER"><Font family="roboto_cond_semibold" size="24" color="#FF1E7A1E"><Upper><Template>%s %d %s<Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[DAY]"/><Parameter expression="[MONTH_S]"/></Template></Upper></Font></Text>
+      </PartText>
+    </Group>
+  </Scene>
+</WatchFace>
